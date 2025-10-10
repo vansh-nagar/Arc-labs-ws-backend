@@ -13,6 +13,11 @@ io.on("connection", (socket: any) => {
     console.log("Message from client: ", data);
     io.emit("message", `Server received: ${data}`);
   });
+
+  socket.on("mousemove", (data: any) => {
+    console.log("Mouse moved: ", data);
+    io.emit("mousemove", data);
+  });
 });
 
 server.listen(8000, () => {
